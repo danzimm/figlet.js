@@ -72,4 +72,13 @@ exports.figlet = {
             test.done();
         });
     },
+    sync: function(test) {
+        test.expect(1);
+        var actual = figlet.textSync('pizzapie', {font: 'Dancing Font', horizontalLayout: 'full'});
+        
+        var expected = grunt.file.read('test/expected/dancingFont');
+            test.equal(actual, expected, 'Dancing Font with a horizontal layout of "full".');
+
+            test.done();
+    }
 };
